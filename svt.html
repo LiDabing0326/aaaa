@@ -7,13 +7,13 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
+      background-color: #e0f7fa; /* 浅蓝色背景 */
       margin: 0;
       padding: 20px;
     }
     header {
       text-align: center;
-      background-color: #ff6b6b;
+      background-color: #007bb5; /* 蓝色背景 */
       color: white;
       padding: 20px;
     }
@@ -22,7 +22,7 @@
       margin: 0;
     }
     h2 {
-      color: #ff6b6b;
+      color: #007bb5; /* 蓝色标题 */
     }
     section {
       margin-top: 20px;
@@ -30,26 +30,44 @@
     p {
       line-height: 1.6;
     }
-    ul, ol {
-      margin-left: 40px;
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
     }
-    mark {
-      background-color: yellow;
+    button {
+      background-color: #007bb5; /* 蓝色按钮 */
+      color: white;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      margin-left: 10px;
+      border-radius: 5px;
     }
-    ruby {
-      color: #ff6b6b;
+    button:hover {
+      background-color: #005f7f; /* 按钮悬停时的深蓝色 */
     }
-    em {
-      font-style: italic;
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #007bb5;
+      width: 300px;
+      min-height: 40px;
+      background-color: #b3e0e5; /* 浅蓝色背景 */
     }
-    strong {
-      font-weight: bold;
+    .quiz-container {
+      background-color: #b3e0e5;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #007bb5;
+      margin-top: 20px;
     }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
+    .question {
+      margin-bottom: 15px;
+    }
+    .answer {
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -65,45 +83,86 @@
     <p>SEVENTEEN，成立于2015年，由 <strong>13</strong> 位成员组成，他们分别是：S.Coups、Jeonghan、Joshua、Jun、Hoshi、Wonwoo、Woozi、DK、Mingyu、The8、Seungkwan、Vernon 和 Dino。</p>
     <p>他们的粉丝团名是 <strong>Carat</strong>，代表着成员和粉丝之间的珍贵关系。SEVENTEEN 以其出色的舞蹈和音乐才华著称。</p>
 
-   <img src="微信图片_20241124141114.jpg" alt="徐明浩 solo概念照" width="600" height="400">
-
+  
+    
     <h2>2. 徐明浩：个性与才华的结合</h2>
     <p><strong>徐明浩</strong>（Xu Minghao），艺名 <strong>The8</strong>，是 SEVENTEEN 的成员之一，负责舞蹈和表演部分。他来自中国，是该组合的主舞之一，也是非常出色的舞者。</p>
-
-    <p><mark>徐明浩</mark> 的舞蹈风格独特，充满力量和表现力。他非常擅长踢踏舞和现代舞，甚至在舞蹈方面获得过许多奖项和赞誉。他的舞台魅力深受粉丝喜爱，特别是在组合的舞蹈部分中，他总是能以强烈的节奏感和完美的动作捕获观众的目光。</p>
-
-    <p><ruby>徐明浩<rt>Xu Minghao</rt></ruby> 从小就展现了对舞蹈的浓厚兴趣，并通过努力学习和训练，成为了 SEVENTEEN 中的主力舞者之一。</p>
-
+    <img src="微信图片_20241124141114.jpg" alt="徐明浩 solo概念照">
     <h2>3. 徐明浩的个性与兴趣</h2>
     <p><em>徐明浩</em> 是一个性格非常内敛但充满魅力的人。尽管他在舞台上非常自信，但私下里他其实是个比较害羞的人。他喜欢安静的环境，并享受独处时光。</p>
+  </section>
 
-    <p><strong>他的兴趣爱好</strong>包括摄影、绘画和旅行。他喜欢用镜头记录生活中的美好瞬间，也常常将自己的创意表达通过画作呈现给大家。</p>
+  <section class="quiz-container">
+    <h2>测试：你知道 SEVENTEEN 吗？</h2>
+    
+    <div class="question">
+      <p><strong>问题 1:</strong> 徐明浩是 SEVENTEEN 的哪位成员？</p>
+      <div class="answer">
+        <input type="radio" id="answer1a" name="question1" value="a">
+        <label for="answer1a">S.Coups</label>
+      </div>
+      <div class="answer">
+        <input type="radio" id="answer1b" name="question1" value="b">
+        <label for="answer1b">The8</label>
+      </div>
+      <div class="answer">
+        <input type="radio" id="answer1c" name="question1" value="c">
+        <label for="answer1c">Vernon</label>
+      </div>
+    </div>
+    
+    <div class="question">
+      <p><strong>问题 2:</strong> SEVENTEEN 的粉丝团名是什么？</p>
+      <div class="answer">
+        <input type="radio" id="answer2a" name="question2" value="a">
+        <label for="answer2a">Carat</label>
+      </div>
+      <div class="answer">
+        <input type="radio" id="answer2b" name="question2" value="b">
+        <label for="answer2b">Diamond</label>
+      </div>
+      <div class="answer">
+        <input type="radio" id="answer2c" name="question2" value="c">
+        <label for="answer2c">Ruby</label>
+      </div>
+    </div>
 
-    <h2>4. 徐明浩在SEVENTEEN的角色</h2>
-    <ul>
-      <li><strong>主舞</strong>：负责许多舞蹈编排，尤其擅长创造具有表现力的舞蹈动作。</li>
-      <li><strong>副唱</strong>：尽管徐明浩以舞蹈为主，但他也参与了部分歌曲的和声部分。</li>
-      <li><strong>视觉担当</strong>：他拥有非常吸引人的外貌和舞台魅力，常常成为舞台上的焦点之一。</li>
-    </ul>
-
-    <h2>5. 徐明浩的代表作品</h2>
-    <ol>
-      <li>《Don't Wanna Cry》 - SEVENTEEN的经典舞蹈和歌曲之一，徐明浩的舞蹈表现出色。</li>
-      <li>《Mansae》 - 徐明浩的舞蹈动作创新，展现了他的舞蹈天赋。</li>
-      <li>《Clap》 - 在这首歌曲中，徐明浩展现了强烈的舞台魅力。</li>
-    </ol>
-
-    <h2>6. SEVENTEEN的成就与影响</h2>
-    <p>SEVENTEEN 成为全球知名的 K-pop 团体，他们的音乐遍布世界各地，粉丝无国界。除了音乐上的成就外，SEVENTEEN 还在慈善、广告代言等领域有着积极的表现。</p>
-    <p>他们的音乐充满正能量，常常鼓励粉丝们追求梦想，勇敢做自己。</p>
-
-    <h2>7. 徐明浩的未来</h2>
-    <p>随着 SEVENTEEN 未来的音乐旅程不断发展，<strong>徐明浩</strong> 也将在不断创新的音乐和舞蹈中展现更多才华，继续在全球舞台上为大家带来更多精彩的表演。</p>
+    <button onclick="checkAnswers()">提交答案</button>
+    <div id="output"></div>
   </section>
 
   <footer>
     <p>&copy; 2024 SEVENTEEN - 徐明浩专栏</p>
   </footer>
+
+  <script>
+    function checkAnswers() {
+      var answer1 = document.querySelector('input[name="question1"]:checked');
+      var answer2 = document.querySelector('input[name="question2"]:checked');
+      var output = document.getElementById("output");
+      
+      if (!answer1 || !answer2) {
+        output.innerHTML = "请回答所有问题！";
+        return;
+      }
+
+      var result = "";
+      
+      if (answer1.value === "b") {
+        result += "问题 1: 正确！徐明浩是 The8。<br>";
+      } else {
+        result += "问题 1: 错误！徐明浩是 The8。<br>";
+      }
+      
+      if (answer2.value === "a") {
+        result += "问题 2: 正确！SEVENTEEN 的粉丝团名是 Carat。";
+      } else {
+        result += "问题 2: 错误！SEVENTEEN 的粉丝团名是 Carat。";
+      }
+      
+      output.innerHTML = result;
+    }
+  </script>
 
 </body>
 </html>
