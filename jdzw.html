@@ -7,69 +7,41 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
             color: #333;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
+        .video-container {
+            margin-top: 20px;
         }
-        main {
-            padding: 2rem;
+        iframe {
+            width: 80%;
             max-width: 800px;
-            margin: auto;
+            height: 450px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        video {
-            display: block;
-            margin: 2rem auto;
-            width: 100%;
-            max-width: 600px;
-            border: 2px solid #4CAF50;
-            border-radius: 5px;
-        }
-        .description {
-            background: #fff;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 1rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 2rem;
+        p {
+            margin: 15px 0;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>文生视频展示页面</h1>
-    </header>
-    <main>
-        <h2>文生视频展示</h2>
-        <p>以下是我的文生视频作品以及对应的成语：</p>
-        <!-- Video section -->
-        <video controls>
-            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113597590012202&bvid=BV1iBi9YVEki&cid=27185645044&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-            您的浏览器不支持视频播放，请升级或更换浏览器。
-        </video>
-        <!-- Text description -->
-        <div class="description">
-            <h3>文生视频成语</h3>
-            <ul>
-                <li>井底之蛙</li>
-            </ul>
-        </div>
-    </main>
-    <footer>
-        <p>© 2024 我的文生视频页面. 版权所有.</p>
-    </footer>
+    <h1>文生视频展示页面</h1>
+    <p>以下是我的 Bilibili 文生视频作品：</p>
+    <div class="video-container">
+        <!-- 替换 src 中的内容为你的 Bilibili 视频嵌入地址 -->
+        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113597590012202&bvid=BV1iBi9YVEki&cid=27185645044&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+        </iframe>
+    </div>
+    <p>文生视频成语：</p>
+    <ul>
+        <li>井底之蛙</li>
+    </ul>
 </body>
 </html>
