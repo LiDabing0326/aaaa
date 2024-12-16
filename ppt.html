@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徐明浩主题PPT</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 100%;
+            transition: all 1s ease;
+        }
+        .slide.active {
+            left: 0;
+        }
+        .slide h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+        .slide p {
+            font-size: 1.5em;
+            max-width: 60%;
+            text-align: center;
+        }
+        .slide-1 {
+            background: linear-gradient(135deg, #0033cc, #6699ff);
+        }
+        .slide-2 {
+            background: linear-gradient(135deg, #004d99, #66b3ff);
+        }
+        .slide-3 {
+            background: linear-gradient(135deg, #00264d, #3385ff);
+        }
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            background: #ffffff;
+            color: #0033cc;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #6699ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide slide-1 active">
+        <h1>徐明浩</h1>
+        <p>追梦与热爱，散发独特魅力的艺术家。</p>
+    </div>
+    <div class="slide slide-2">
+        <h1>才艺与成就</h1>
+        <p>舞蹈、音乐、时尚，徐明浩在每一个领域都大放异彩。</p>
+    </div>
+    <div class="slide slide-3">
+        <h1>粉丝互动</h1>
+        <p>他用真诚和努力感动每一个人，传递温暖与力量。</p>
+    </div>
+
+    <div class="controls">
+        <button class="button" onclick="prevSlide()">上一页</button>
+        <button class="button" onclick="nextSlide()">下一页</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) slide.classList.add('active');
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>
