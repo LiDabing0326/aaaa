@@ -9,6 +9,20 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone {
+            width: 375px;
+            height: 667px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         .container {
             display: flex;
@@ -17,8 +31,8 @@
             transition: transform 0.5s ease;
         }
         .page {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 667px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -34,11 +48,11 @@
             margin-bottom: 20px;
         }
         .page h1 {
-            font-size: 2em;
+            font-size: 1.8em;
             margin: 10px 0;
         }
         .page p {
-            font-size: 1em;
+            font-size: 0.9em;
             text-align: center;
             padding: 0 20px;
         }
@@ -54,21 +68,23 @@
     </style>
 </head>
 <body>
-    <div id="slider" class="container">
-        <div class="page page-1">
-            <img src="https://via.placeholder.com/300x200?text=%E5%BE%90%E6%98%8E%E6%B5%A9" alt="徐明浩">
-            <h1>徐明浩</h1>
-            <p>追梦与热爱，散发独特魅力的艺术家。</p>
-        </div>
-        <div class="page page-2">
-            <img src="https://via.placeholder.com/300x200?text=%E6%89%8D%E8%89%BA%E5%92%8C%E6%88%90%E5%B0%B1" alt="才艺与成就">
-            <h1>才艺与成就</h1>
-            <p>舞蹈、音乐、时尚，徐明浩在每一个领域都大放异彩。</p>
-        </div>
-        <div class="page page-3">
-            <img src="https://via.placeholder.com/300x200?text=%E7%B2%89%E4%B8%9D%E4%BA%92%E5%8A%A8" alt="粉丝互动">
-            <h1>粉丝互动</h1>
-            <p>他用真诚和努力感动每一个人，传递温暖与力量。</p>
+    <div class="phone">
+        <div id="slider" class="container">
+            <div class="page page-1">
+                <img src="https://via.placeholder.com/300x200?text=%E5%BE%90%E6%98%8E%E6%B5%A9" alt="徐明浩">
+                <h1>徐明浩</h1>
+                <p>追梦与热爱，散发独特魅力的艺术家。</p>
+            </div>
+            <div class="page page-2">
+                <img src="https://via.placeholder.com/300x200?text=%E6%89%8D%E8%89%BA%E5%92%8C%E6%88%90%E5%B0%B1" alt="才艺与成就">
+                <h1>才艺与成就</h1>
+                <p>舞蹈、音乐、时尚，徐明浩在每一个领域都大放异彩。</p>
+            </div>
+            <div class="page page-3">
+                <img src="https://via.placeholder.com/300x200?text=%E7%B2%89%E4%B8%9D%E4%BA%92%E5%8A%A8" alt="粉丝互动">
+                <h1>粉丝互动</h1>
+                <p>他用真诚和努力感动每一个人，传递温暖与力量。</p>
+            </div>
         </div>
     </div>
 
@@ -76,10 +92,35 @@
         let currentPage = 0;
         const slider = document.getElementById('slider');
         const totalPages = document.querySelectorAll('.page').length;
+        let startY = 0;
+        let moveY = 0;
+        let isSwiping = false;
 
         function updateSlider() {
-            slider.style.transform = `translateY(-${currentPage * 100}vh)`;
+            slider.style.transform = `translateY(-${currentPage * 667}px)`;
         }
+
+        slider.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+            isSwiping = true;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+            moveY = e.touches[0].clientY - startY;
+        });
+
+        slider.addEventListener('touchend', () => {
+            if (!isSwiping) return;
+            if (moveY > 50) {
+                currentPage = Math.max(currentPage - 1, 0);
+            } else if (moveY < -50) {
+                currentPage = Math.min(currentPage + 1, totalPages - 1);
+            }
+            updateSlider();
+            isSwiping = false;
+            moveY = 0;
+        });
 
         window.addEventListener('wheel', (e) => {
             if (e.deltaY > 0) {
@@ -92,3 +133,4 @@
     </script>
 </body>
 </html>
+
