@@ -94,6 +94,7 @@
         const totalPages = document.querySelectorAll('.page').length;
         let startY = 0;
         let moveY = 0;
+        let endY = 0;
         let isSwiping = false;
 
         function updateSlider() {
@@ -110,16 +111,22 @@
             moveY = e.touches[0].clientY - startY;
         });
 
-        slider.addEventListener('touchend', () => {
+        slider.addEventListener('touchend', (e) => {
             if (!isSwiping) return;
-            if (moveY > 50) {
+            endY = e.changedTouches[0].clientY;
+            const distance = endY - startY;
+            const threshold = 100; // 滑动的阈值
+
+            if (distance > threshold) {
                 currentPage = Math.max(currentPage - 1, 0);
-            } else if (moveY < -50) {
+            } else if (distance < -threshold) {
                 currentPage = Math.min(currentPage + 1, totalPages - 1);
             }
             updateSlider();
             isSwiping = false;
+            startY = 0;
             moveY = 0;
+            endY = 0;
         });
 
         window.addEventListener('wheel', (e) => {
@@ -133,4 +140,5 @@
     </script>
 </body>
 </html>
+
 
